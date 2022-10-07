@@ -37,6 +37,7 @@ const EditorPage = () => {
 
         });
 
+        //User Joined event listening
         socketRef.current.on(ACTIONS.JOINED,
           ({clients,username,socketId})=>{
             if(username!=location.state?.username){
@@ -45,9 +46,29 @@ const EditorPage = () => {
             }
             setClients(clients);
           }
-          )
-    }
+        )
+        
+        //User left event listening
+        socketRef.current.on(ACTIONS.DISCONNECTED,
+          ({socketId,username})=>{
+
+              toast.success(`${username} left the room.`);
+              console.log(`${username} joined testing log`);
+            
+            setClients((prev)=>{
+              return prev.filter(client=>client.socketId!==socketId)
+            });
+          }
+        );
+    };
     init();
+    //we have used multiple on listeners, we need to clean them to avoid memory leakage using cleaning function below
+    return ()=>{
+
+      socketRef.current.off(ACTIONS.JOINED);
+      socketRef.current.off(ACTIONS.DISCONNECTED);
+      socketRef.current.disconnect();
+    }
   },[])
 
 

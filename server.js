@@ -37,6 +37,19 @@ io.on('connection', (socket) => {
             }); //to which socket id u wanna notify, new user is added
         })
     });
+
+    socket.on('disconnecting',()=>{
+        const rooms =  [...socket.rooms];
+        rooms.forEach((roomId)=>{
+            socket.in(roomId).emit(ACTIONS.DISCONNECTED,{
+                socketId:socket.id,
+                username: userSocketMap[socket.id],
+            })
+        })
+        delete userSocketMap[socket.id];
+        socket.leave();
+        
+    })
 })
 const PORT= process.env.PORT||5000;
 server.listen(PORT,() => console.log(`Listening on port ${PORT}`));
