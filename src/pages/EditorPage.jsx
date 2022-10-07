@@ -14,6 +14,8 @@ const EditorPage = () => {
   const socketRef= useRef(null);
   const location= useLocation();
   const {roomId}= useParams();
+
+  const [clients,setClients]= useState([]);
   const reactNavigtor= useNavigate();
 
   useEffect(()=>{
@@ -34,15 +36,21 @@ const EditorPage = () => {
           username:location.state?.username,
 
         });
+
+        socketRef.current.on(ACTIONS.JOINED,
+          ({clients,username,socketId})=>{
+            if(username!=location.state?.username){
+              toast.success(`${username} joined the room.`);
+              console.log(`${username} joined testing log`);
+            }
+            setClients(clients);
+          }
+          )
     }
     init();
   },[])
 
-  const [clients,setClients]= useState([
-    {socketId:1,username:'John'},
-    {socketId:2,username:'Tyson'},
-    // {socketId:3,username:'Mike Savage'},
-  ]);
+
 
   if(!location.state){
     return <Navigate to="/" />;
