@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <div className='homePageWrapper'>
       <div className='formWrapper'>
-        <img className='homePageLogo' src="/code-sync.png" alt="site logo"/>
+        <img className='homePageLogo' src="/logof.png" alt="site logo"/>
         <h4 className='mainLabel'>Join a room</h4>
 
         <div className="inputGroup">

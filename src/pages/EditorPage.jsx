@@ -99,7 +99,7 @@ const EditorPage = () => {
       <div className="aside">
         <div className="asideInner">
           <div className="logo">
-            <img src="/code-sync.png" alt="logo" className='logoImage'/>
+            <img src="/logof.png" alt="logo" className='logoImage'/>
           </div>
       
           <h3>Connected</h3>
