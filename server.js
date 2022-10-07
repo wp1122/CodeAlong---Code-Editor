@@ -38,6 +38,10 @@ io.on('connection', (socket) => {
         })
     });
 
+    socket.on(ACTIONS.CODE_CHANGE,({roomId,code})=>{
+        socket.in(roomId).emit(ACTIONS.CODE_CHANGE,{code});
+    })
+
     socket.on('disconnecting',()=>{
         const rooms =  [...socket.rooms];
         rooms.forEach((roomId)=>{
@@ -48,7 +52,7 @@ io.on('connection', (socket) => {
         })
         delete userSocketMap[socket.id];
         socket.leave();
-        
+
     })
 })
 const PORT= process.env.PORT||5000;
