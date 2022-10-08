@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# CodeAlong- Online Realtime Collaborative Code-Editor
+
+Utilized React.js for front-end design, Node.js for back-end implementation and Socket.IO to stream changes in
+the text editor in real-time.
+
+Check live-demo [here](https://codealong-editor.herokuapp.com).
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
