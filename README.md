@@ -4,6 +4,7 @@ Utilized React.js for front-end design, Node.js for back-end implementation and 
 the text editor in real-time.
 
 Check live-demo [here](https://codealong-editor.herokuapp.com).
+note: The website may take 30 seconds to load for the first time due to free tier limitations of Heroku.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
