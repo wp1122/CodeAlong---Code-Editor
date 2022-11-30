@@ -3,8 +3,8 @@
 Utilized React.js for front-end design, Node.js for back-end implementation and Socket.IO to stream changes in
 the text editor in real-time.
 
-Check live-demo [here](https://codealong-editor.herokuapp.com).\
-Note: The website may take 30 seconds to load for the first time due to free tier limitations of Heroku.
+Check live-demo [here](https://codealong-codeeditor.onrender.com/).\
+Note: The website may take few seconds to load for the first time due to free tier limitations of Render.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
